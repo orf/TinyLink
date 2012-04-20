@@ -33,7 +33,6 @@ class Link(models.Model):
         return i
 
 
-
 class HitsDatePoint(models.Model):
     day = models.DateField(auto_now=True, db_index=True)
     hits = models.IntegerField(default=0)
