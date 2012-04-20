@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link href="{{ STATIC_URL }}css/bootstrap.min.css" rel="stylesheet">
+
+    <script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script>
+    <style type="text/css">
+        body {
+            padding-top: 60px;
+            padding-bottom: 40px;
+        }
+    </style>
+</head>
+
+<body>
+<div class="row-fluid">
+    <div class="navbar navbar-fixed-top">
+        <div class="navbar-inner">
+            <div class="container">
+                <a href="/" class="brand">TinyLink</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1>Link Statistics</h1>
+        <hr />
+
+        <div class="row">
+            <div class="span6">
+                <h3>Hits in the last 30 days:</h3>
+                <table class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Hits</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if stats|length %}
+                            {% for stat in stats %}
+                                <tr>
+                                    <td>{{ stat.day }}</td>
+                                    <td>{{ stat.hits }}</td>
+                                </tr>
+                            {% endfor %}
+                        {% else %}
+                            <tr>
+                                <td colspan="2" style="text-align: center">Nobody has clicked your link! How rude.</td>
+                            </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+            <div class="span6">
+                <p><strong>Link URL:</strong> <a href="{{ link_url }}">{{ link_url }}</a></p>
+                <p><Strong>Total clicks:</Strong> {{ link.hits }}</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
