@@ -29,7 +29,7 @@ class Link(models.Model):
     def decode_id(string):
         i = 0
         for c in string:
-            i = i * 64 + _char_map.index(c)
+            i = i * 62 + _char_map.index(c)
         return i
 
 

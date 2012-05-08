@@ -37,7 +37,9 @@ def home(request):
             context_instance=RequestContext(request))
 
 def link(request, id):
+    print id
     db_id = models.Link.decode_id(id)
+    print db_id
     link_db = get_object_or_404(models.Link, id=db_id)
 
     models.Link.objects.filter(id=db_id).update(hits=F('hits')+1) # Update the link hits
