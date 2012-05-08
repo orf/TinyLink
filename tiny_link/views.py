@@ -28,7 +28,6 @@ def home(request):
             link_db = models.Link()
             link_db.link = url_input
             link_db.save()
-            print link_db.id
             shortened_url = request.build_absolute_uri(link_db.get_short_id())
             url_input = ""
             #shortened_url = "%s/%s"%(request.META["HTTP_HOST"], link_db.get_short_id())
