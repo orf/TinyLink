@@ -76,7 +76,7 @@ STATICFILES_DIRS = (
     # Always use forward slashes, even on Windows.
     # Don't forget to use absolute paths, not relative paths.
     'C:/Users/Admin/Documents/Aptana Studio 3 Workspace/TinyLink/tiny_link/static',
-    '/var/www/tinylink/tiny_link/static',
+    '/var/www/TinyLink/tiny_link/static',
 )
 
 # List of finder classes that know how to find static files in
@@ -112,10 +112,10 @@ ROOT_URLCONF = 'TinyLink.urls'
 # Python dotted path to the WSGI application used by Django's runserver.
 WSGI_APPLICATION = 'TinyLink.wsgi.application'
 
-if DEBUG:
+if os.name == "nt":
     TEMPLATE_DIRS = ('C:/Users/Admin/Documents/Aptana Studio 3 Workspace/TinyLink/templates',)
 else:
-    TEMPLATE_DIRS = ('/var/www/tinylink/templates',)
+    TEMPLATE_DIRS = ('/var/www/TinyLink/templates',)
 
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
